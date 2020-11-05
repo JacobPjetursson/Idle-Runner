@@ -10,8 +10,10 @@ public class EventManager : Singleton<EventManager>
         if (Input.GetKey("space"))
         {
             if (!activated)
+            {
                 activated = true;
-            FindObjectOfType<Player>().Jump();
+                FindObjectOfType<Player>().Jump();
+            }
         }
         else
         {

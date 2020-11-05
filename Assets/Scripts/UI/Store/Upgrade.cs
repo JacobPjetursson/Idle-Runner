@@ -7,21 +7,21 @@ public abstract class Upgrade : StoreEntry
 {
     private bool isBought;
 
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public abstract void Effect();
+    // this is called in a routine by the 'Store' script
+    public abstract bool IsUnlocked();
 
     public override void Buy()
     {
-        GameManager.Instance.UseCoins(price);
+        ResourceManager.Instance.UseCoins(price);
+        isBought = true;
         Effect();
+        gameObject.SetActive(false);
+        // todo: re-arrange the remaining entries
+    }
+
+    public bool IsBought()
+    {
+        return isBought;
     }
 }

@@ -5,23 +5,24 @@ using UnityEngine;
 public class ProductionUpgrade : Upgrade
 {
     public float productionMultiplier;
-    public Item item;
+    public int unlockLvl;
+    public GameObject item;
+
+    public override void Start()
+    {
+        base.Start();
+        // set info text
+        string multiplier = (100 * (productionMultiplier - 1)).ToString("0");
+        infoText.text = "Increase production of the " + item.name + " by " + multiplier + "%";
+    }
 
     public override void Effect()
     {
-        item.MultiplyCps(productionMultiplier);
-
+        item.GetComponent<Item>().MultiplyCps(productionMultiplier);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public override bool IsUnlocked()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return item.GetComponent<Item>().GetLevel() >= unlockLvl;
     }
 }

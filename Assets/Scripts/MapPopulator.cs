@@ -40,7 +40,7 @@ public class MapPopulator : Singleton<MapPopulator>
             // set coin pos
             lastCoinPos = totalDist;
             // spawn coin pattern at random
-            Spawn(coinPatterns);
+            Spawn(coinPatterns, coins.transform);
         }
         float currEnemyDistance = (totalDist - lastEnemyPos);
         if (currEnemyDistance > enemyDistance)
@@ -50,15 +50,15 @@ public class MapPopulator : Singleton<MapPopulator>
             // set enemy pos
             lastEnemyPos = totalDist;
             // spawn enemy pattern at random
-            Spawn(enemyPatterns);
+            Spawn(enemyPatterns, enemies.transform);
         }
 
     }
 
-    private void Spawn(GameObject[] patterns)
+    private void Spawn(GameObject[] patterns, Transform parent)
     {
         // spawn one of the patterns at random
         int index = Random.Range(0, patterns.Length);
-        GameObject instance = Instantiate(patterns[index]);
+        GameObject instance = Instantiate(patterns[index], parent);
     }
 }

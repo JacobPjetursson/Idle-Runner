@@ -13,7 +13,9 @@ public class UIManager : Singleton<UIManager>
     // Start is called before the first frame update
     void Start()
     {
-        
+        // update coins and souls text regularly
+        StartCoroutine(UpdateUIRoutine());
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -31,6 +33,11 @@ public class UIManager : Singleton<UIManager>
         soulText.text = "Souls: " + souls.ToString("0.0");
     }
 
+    public void SetCps(double cps)
+    {
+        cpsText.text = "Coins per second: " + cps.ToString("0.0");
+    }
+
     public void Sprint()
     {
         float sprintCooldown = GameManager.Instance.sprintCooldown;
@@ -46,8 +53,20 @@ public class UIManager : Singleton<UIManager>
         sprintButton.interactable = true;
     }
 
-    public void SetCps(float cps)
+    private IEnumerator UpdateUIRoutine()
     {
-        cpsText.text = "Coins per second: " + cps.ToString("0.0");
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            UpdateUI();
+        }
+    }
+
+    public void UpdateUI()
+    {
+        ResourceManager res = ResourceManager.Instance;
+        SetCoins(res.GetCoins());
+        SetSouls(res.GetSouls());
+        SetCps(res.GetCps());
     }
 }

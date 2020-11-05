@@ -55,11 +55,11 @@ public class Player : MonoBehaviour
         Transform  t = collision.transform;
         if (t.tag == "Enemy")
         {
-            GameManager.Instance.SlayEnemy(t.gameObject);
+            ResourceManager.Instance.SlayEnemy(t.gameObject);
         }
         else if (t.tag == "Coin")
         {
-            GameManager.Instance.CollectCoin(t.gameObject);
+            ResourceManager.Instance.CollectCoin(t.gameObject);
         }
     }
 }

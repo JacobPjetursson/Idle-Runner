@@ -8,19 +8,20 @@ public abstract class StoreEntry : MonoBehaviour
     // reference to UI
     public Text priceText;
     public Text infoText;
+    public Text iconText;
     public Button buyButton;
     public double price;
 
-    void Start()
+    public virtual void Start()
     {
         priceText.text = price.ToString("0.0") + " coins";
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void FixedUpdate()
     {
         // check if player can afford this item
-        double currCoins = GameManager.Instance.GetCoins();
+        double currCoins = ResourceManager.Instance.GetCoins();
         if (currCoins < price)
         {
             if (buyButton.IsInteractable())
