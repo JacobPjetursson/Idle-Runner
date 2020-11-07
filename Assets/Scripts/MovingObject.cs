@@ -5,6 +5,8 @@ using UnityEngine;
 public class MovingObject : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    private float destructDistance = 20; // how far off screen may obj travel before being destroyed
+    private bool freeze = false;
 
     void Start()
     {
@@ -18,7 +20,12 @@ public class MovingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetSpeed(GameManager.Instance.GetCurrentSpeed());
+        if (!freeze)
+            SetSpeed(GameManager.Instance.GetCurrentSpeed());
+        if (transform.tag != "Ground" && -transform.position.x >= destructDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetSpeed(float speed)
@@ -28,5 +35,14 @@ public class MovingObject : MonoBehaviour
         Vector2 move = rb2d.velocity;
         move.x = -speed;
         rb2d.velocity = move;
+    }
+
+    public void SetFreeze(bool freeze)
+    {
+        this.freeze = freeze;
+        if (freeze)
+            SetSpeed(0f);
+        else
+            SetSpeed(GameManager.Instance.GetCurrentSpeed());
     }
 }

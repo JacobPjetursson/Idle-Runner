@@ -19,7 +19,9 @@ public class GameManager : Singleton<GameManager>
     {
         currSpeed = walkSpeed;
         // disable the store
-        FindObjectOfType<Store>().gameObject.SetActive(false);
+        Store store = FindObjectOfType<Store>();
+        if (store != null)
+            store.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

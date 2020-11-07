@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6367554155634072076}
   - component: {fileID: 6367554155634072075}
   - component: {fileID: 6367554155634072074}
-  - component: {fileID: 6367554155634072073}
   - component: {fileID: 6367554155634072072}
   m_Layer: 0
   m_Name: Beetle (1)
@@ -152,18 +151,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6367554155634072073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367554155634072070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86861daad03ee5743bdad86432cb54c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6367554155634072072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +177,6 @@ GameObject:
   - component: {fileID: 6367554156084872711}
   - component: {fileID: 6367554156084872710}
   - component: {fileID: 6367554156084872709}
-  - component: {fileID: 6367554156084872708}
   - component: {fileID: 6367554156084872707}
   m_Layer: 0
   m_Name: Beetle (2)
@@ -329,18 +315,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6367554156084872708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367554156084872705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86861daad03ee5743bdad86432cb54c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6367554156084872707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +341,6 @@ GameObject:
   - component: {fileID: 6367554156884914989}
   - component: {fileID: 6367554156884914992}
   - component: {fileID: 6367554156884914993}
-  - component: {fileID: 6367554156884914994}
   - component: {fileID: 6367554156884914995}
   m_Layer: 0
   m_Name: Beetle
@@ -506,18 +479,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6367554156884914994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367554156884914988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86861daad03ee5743bdad86432cb54c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6367554156884914995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +501,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6367554157233737702}
+  - component: {fileID: 5909092755409829120}
+  - component: {fileID: 3928991602909979548}
   m_Layer: 0
   m_Name: EnemyPattern
   m_TagString: Untagged
@@ -555,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6367554157233737701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6367554156884914991}
@@ -564,3 +527,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5909092755409829120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367554157233737701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86861daad03ee5743bdad86432cb54c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &3928991602909979548
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367554157233737701}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

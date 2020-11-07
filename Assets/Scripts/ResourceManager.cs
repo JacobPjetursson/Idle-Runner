@@ -38,6 +38,12 @@ public class ResourceManager : Singleton<ResourceManager>
         UIManager.Instance.SetCoins(coins);
     }
 
+    public void EarnCoins(double earnedCoins)
+    {
+        coins += earnedCoins;
+        UIManager.Instance.SetCoins(coins);
+    }
+
     public double GetCps()
     {
         return currCps;
