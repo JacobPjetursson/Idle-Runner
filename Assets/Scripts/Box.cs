@@ -6,14 +6,12 @@ using UnityEngine.Events;
 
 public class Box : MonoBehaviour
 {
-    public Text boxText;
-    public float textDuration;
+    public GameObject boxText;
     public float triggerChance;
     public UnityEvent effect;
     // Start is called before the first frame update
     void Start()
     {
-        boxText.enabled = false;
     }
 
     // Update is called once per frame
@@ -67,12 +65,11 @@ public class Box : MonoBehaviour
 
     }
 
-    private IEnumerator ShowBoxText(string text)
+    private void ShowBoxText(string text)
     {
-        boxText.text = text;
-        boxText.enabled = true;
-        yield return new WaitForSeconds(textDuration);
-        boxText.enabled = false;
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject instance = Instantiate(boxText, canvas.transform);
+        instance.GetComponent<Text>().text = text;
     }
 
     // start of box functions
